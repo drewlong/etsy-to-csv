@@ -1,6 +1,4 @@
 ---
-:gmail_user: you@gmail.com
-:gmail_pass: password
 :etsy_protocol: https
 :etsy_api_key: API_KEY
 :etsy_api_secret: API_SECRET

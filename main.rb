@@ -1,14 +1,12 @@
 require 'csv'
 require 'date'
 require 'etsy'
-require 'gmail'
 require 'yaml'
 
 module EtsyBot
   class Monitor
     def initialize
       config = YAML.load_file(File.dirname(__FILE__)+"/lib/config.yml")
-      @gmail = Gmail.connect(config[:gmail_user], config[:gmail_pass])
       Etsy.protocol = config[:etsy_protocol]
       Etsy.api_key = config[:etsy_api_key]
       Etsy.api_secret = config[:etsy_api_secret]
@@ -48,5 +46,5 @@ module EtsyBot
 end
 
 bot = EtsyBot::Monitor.new
-bot.search("vintage")
+bot.search(ARGV[0])
 bot.save_csv
